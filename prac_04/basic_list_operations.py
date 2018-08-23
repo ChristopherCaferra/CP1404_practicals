@@ -3,15 +3,22 @@
 
 def main():
     numbers = []
-    for i in range(5):
-        validated = False
-        while not validated:
-            try:
-                number = int(input("Number: "))
-                numbers.append(number)
-                validated = True
-            except ValueError:
-                print("invalid input")
+    count = 1
+    validated = False
+    while not validated:
+        try:
+            number = int(input("Number {}: ".format(count)))
+            count += 1
+            while number >= 0:
+                number = int(input("Number {}: ".format(count)))
+                if number < 0:
+                    break
+                else:
+                    numbers.append(number)
+                    count += 1
+                    validated = True
+        except ValueError:
+            print("invalid input")
     average_of_numbers_list = calculate_average_of_list_numbers(numbers)
     print("The first number is {}".format(numbers[0]))
     print("The last number is {}".format(numbers[-1]))
