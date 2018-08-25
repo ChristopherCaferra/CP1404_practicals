@@ -6,8 +6,9 @@ TEXT = "this is a collection of words of nice words this is a fun thing it is"
 def main():
     text_list = TEXT.split()
     word_dict = add_items_to_new_dict(text_list)
-    print("Text: ", TEXT)
-    print_dict_table(word_dict)
+    print("Text: ", TEXT, "\n")
+    formatting_length = get_max_length_from_list(text_list)
+    print_dict_table(word_dict, formatting_length)
 
 
 def add_items_to_new_dict(text_list):
@@ -18,10 +19,18 @@ def add_items_to_new_dict(text_list):
     return word_dict
 
 
-def print_dict_table(word_dict):
+def get_max_length_from_list(list):
+    list.sort(key=len)
+    max_length = len(list[-1])
+    return max_length
+
+
+def print_dict_table(word_dict, formatting_length):
     # print dictionary in table format
+    print("{:^{}} | {}".format("Word", formatting_length, "Count"))
+    print("{:{}} | {}".format(" ", formatting_length, " "))
     for word, count in sorted(word_dict.items()):
-        print("{:10} : {}".format(word, count))
+        print("{:{}} | {:>5}".format(word, formatting_length, count))
 
 
 main()
