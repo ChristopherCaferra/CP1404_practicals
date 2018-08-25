@@ -1,4 +1,4 @@
-"""Check user input password for correct length"""
+"""Program that checks user input password for correct length"""
 
 MINIMUM_PASSWORD_LENGTH = 6
 
@@ -10,9 +10,10 @@ def main():
     print_asterisks(password)
 
 
-def print_asterisks(password):
-    for char in password:  # Print "*" for every character in password.
-        print("*", end='')
+def print_asterisks(string):
+    # Prints "*" for every character in string.
+    asterisks = len(string) * "*"
+    print(asterisks)
 
 
 def get_password():
