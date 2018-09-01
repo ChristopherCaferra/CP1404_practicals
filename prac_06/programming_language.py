@@ -6,7 +6,7 @@ Class containing details  of different programming languages.
 
 class ProgrammingLanguage:
 
-    def __init__(self, name, typing, reflection, year):
+    def __init__(self, name, typing, reflection, year=0):
         self.name = name
         self.typing = typing
         self.reflection = reflection
