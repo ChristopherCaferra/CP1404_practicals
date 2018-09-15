@@ -1,0 +1,13 @@
+BoxLayout:
+    orientation: 'vertical'
+    TextInput:
+        id: input_number
+    Button:
+        text: "Calculate Grade"
+        halign: 'center'
+        on_press: app.handel_calculate()
+    Label:
+        id: label_output
+        color: (1, 1, 0, 1)
+        halign: 'center'
+        text: 'Grade will be displayed here'
