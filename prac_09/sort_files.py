@@ -1,6 +1,7 @@
 """
 CP1404/CP5632 Practical
 Program to sort files into directories based on file type
+By Christopher Caferra
 """
 
 import os
@@ -8,6 +9,7 @@ import shutil
 
 
 def main():
+    """Sort files into directories based on file extension"""
     extensions = []
     extension = ''
     os.chdir('FilesToSort')
