@@ -17,10 +17,12 @@ def main():
         if menu_input == "s":
             search_input = input("What would you like to search?: ")
             try:
-                search_result = wikipedia.search(search_input)
-                print(wikipedia.summary(search_result))
+                search_result = wikipedia.summary(search_input)
+                print(search_result)
             except wikipedia.exceptions.DisambiguationError as e:
                 print(e.options)
+            except wikipedia.exceptions.PageError:
+                pass
         elif menu_input == "p":
             summary_input = input("What is the title of the page?: ")
             try:
@@ -30,6 +32,8 @@ def main():
                 print(wikipedia.page(title_search).url)
             except wikipedia.exceptions.DisambiguationError as e:
                 print(e.options)
+            except wikipedia.exceptions.PageError:
+                pass
         else:
             print("Invalid menu option. Type 'S' or 'P'.")
         print(MENU)
